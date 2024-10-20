@@ -14,6 +14,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { TaskEditComponent } from './task-edit/task-edit.component';
 import { SearchPipe } from './pipe/search.pipe';
 import { CommonModule } from '@angular/common';
+import { UserListComponent } from './user-list/user-list.component';
+import { UserAddComponent } from './user-add/user-add.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { CommonModule } from '@angular/common';
     TaskListComponent,
     CreateTaskComponent,
     TaskEditComponent,
-    SearchPipe
+    SearchPipe,
+    UserListComponent,
+    UserAddComponent
     
   ],
   imports: [
