@@ -1,30 +1,42 @@
 import { Component } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormGroup,FormControl } from '@angular/forms';
 import { ServiceService } from '../service.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-create-task',
   templateUrl: './create-task.component.html',
   styleUrl: './create-task.component.css'
+
 })
 export class CreateTaskComponent {
-title='Create new task'
-constructor(private service:ServiceService){
+Title='Create new task';
+  createForm: FormGroup;
 
-}
-createForm=new FormGroup({
-  title:new FormControl(),
-  description:new FormControl(),
-  dueDate:new FormControl(),
-  priority:new FormControl()
-
+constructor(private service:ServiceService ,private toastr: ToastrService, private router:Router,private fb:FormBuilder ){
+this.createForm=this.fb.group({
+  title:['',Validators.required],
+  description:[''],
+  dueDate:[],
+  priority:['',Validators.required]
 })
+}
+
+
 GetFormdata(){
+  console.log( "Title"+this.createForm.controls['title'])
   console.log(this.createForm.value)
-  this.service.AddTask(this.createForm.value).subscribe(data=>{
-    alert("task added")
+  let task=this.createForm.value;
+  this.service.AddTask(task).subscribe(data=>{
+    this.toastr.success("Task updated succesfully")
+    this.GotoHome()
   })
 }
 
-
+GotoHome():void
+{
+  this.router.navigate([''])
+}
+  
 }

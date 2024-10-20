@@ -8,20 +8,31 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TaskListComponent } from './task-list/task-list.component';
 
 import { CreateTaskComponent } from './create-task/create-task.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { TaskEditComponent } from './task-edit/task-edit.component';
+import { SearchPipe } from './pipe/search.pipe';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
     TaskListComponent,
-    CreateTaskComponent
+    CreateTaskComponent,
+    TaskEditComponent,
+    SearchPipe
     
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
   
   ],
   providers: [],
