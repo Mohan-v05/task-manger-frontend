@@ -16,6 +16,7 @@ import { SearchPipe } from './pipe/search.pipe';
 import { CommonModule } from '@angular/common';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserAddComponent } from './user-add/user-add.component';
+import { UserSearchPipe } from './pipe/user-search.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { UserAddComponent } from './user-add/user-add.component';
     TaskEditComponent,
     SearchPipe,
     UserListComponent,
-    UserAddComponent
+    UserAddComponent,
+    UserSearchPipe
     
   ],
   imports: [

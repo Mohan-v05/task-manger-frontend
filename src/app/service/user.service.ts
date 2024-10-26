@@ -9,12 +9,12 @@ export class UserService {
   constructor(private http:HttpClient) { }
   
   updateUser(user: any ,userid:number) {
-    return this.http.put('http://localhost:5076/api/Users/'+userid,user)
+    return this.http.put('http://localhost:5076/api/Users/'+ userid,user)
    }
  
  
    getUser(userId: number) {
-    return this.http.get<User>('http://localhost:5076/api/Users/'+userId);
+    return this.http.get<User>('http://localhost:5076/api/Users/'+ userId);
    }
  
 
@@ -39,5 +39,13 @@ export interface User{
   name:string,
   email:string,
   phone:string,
-  password: string
+  password: string,
+  address?:Address
+}
+
+export interface Address{
+  firstLine :string,
+    secondLine:string,
+    city:string,
+
 }

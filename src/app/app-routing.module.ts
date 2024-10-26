@@ -5,8 +5,10 @@ import { CreateTaskComponent } from './create-task/create-task.component';
 import { TaskEditComponent } from './task-edit/task-edit.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserAddComponent } from './user-add/user-add.component';
+import { AppComponent } from './app.component';
 
 const routes: Routes = [
+
   {
     path:'list-task',
     component:TaskListComponent
@@ -27,8 +29,10 @@ const routes: Routes = [
   {
     path:'addnewuser',
     component:UserAddComponent
+  },
+  {
+    path: 'edit-user/:id', component:UserAddComponent
   }
-  
 
   
 ];

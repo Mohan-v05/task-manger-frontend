@@ -7,6 +7,6 @@ import { ServiceService } from './service.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent  {
- title='Appcomponent'
+ title='UnicomTic Task manager' 
  
 }
