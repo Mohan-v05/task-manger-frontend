@@ -139,3 +139,13 @@ body {
 .bd-mode-toggle .dropdown-menu .active .bi {
   display: block !important;
 }
+.rounded-pill :hover{
+  background-color: aquamarine;
+ 
+  border-radius: 10px;
+  animation-duration: 100ms;
+}
+.rounded-pill::shadow{
+  background-color: rgb(33, 41, 49);
+  margin-top: 20px;
+}

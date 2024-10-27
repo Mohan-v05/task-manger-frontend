@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { ServiceService, Task } from '../service.service';
 import { Router } from '@angular/router';
 
@@ -9,6 +9,15 @@ import { Router } from '@angular/router';
   styleUrl: './task-list.component.css'
 })
 export class TaskListComponent implements OnInit {
+decline() {
+throw new Error('Method not implemented.');
+}
+confirm() {
+throw new Error('Method not implemented.');
+}
+openModal(_t42: TemplateRef<any>) {
+throw new Error('Method not implemented.');
+}
 
   
   title = 'TASK LIST';
@@ -42,3 +51,4 @@ this.serrvice.Deletetask(taskId).subscribe(data=>{
   }
 
 }
+

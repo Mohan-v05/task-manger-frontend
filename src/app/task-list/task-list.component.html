@@ -30,7 +30,7 @@
                 <td>{{task.description}}</td>
                 <td>{{task.dueDate | date:"dd-MMM-yyyy"}}</td>
                 <td>{{task.priority}}</td>
-                <td>{{task.assignee?.name}}</td>
+                <td>{{task.user?.name}}</td>
                 <td class="p-2">
                   <button class="rounded btn btn-outline-primary mx-1"  [routerLink]="['/edit/'+task.id]" ><i class="bi bi-pencil"></i>Edit</button>
                   <button   class="rounded btn btn-outline-danger mx-1" (click)="Deletetask(task.id)"> Delete <i class="bi bi-trash"></i></button> </td>
@@ -38,3 +38,17 @@
             </tbody>
           </table>
         </div>
+<!--modal-->
+<!-- 
+        <button type="button" class="btn btn-primary" (click)="openModal(template)">Open modal</button>
+        <br><br>
+        <pre class="card card-block card-header">MOHAN</pre>
+
+        
+        <ng-template #template>
+          <div class="modal-body text-center">
+            <p>Do you want to confirm?</p>
+            <button type="button" class="btn btn-default" (click)="confirm()" >Yes</button>
+            <button type="button" class="btn btn-primary" (click)="decline()" >No</button>
+          </div>
+        </ng-template> -->

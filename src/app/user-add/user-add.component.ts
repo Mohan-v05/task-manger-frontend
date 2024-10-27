@@ -68,7 +68,9 @@ GetFormdata()
   console.log(this.createForm.value)
   let user=this.createForm.value;
   if (this.userId!==0) {
-   
+    user.id=this.userId;
+    user.address.id=this.userId;
+    console.log(user)
   this.service.updateUser(user,this.userId).subscribe(data=>{this.toastr.success("User updated succesfully")
   })}
 

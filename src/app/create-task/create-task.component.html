@@ -1,4 +1,4 @@
-<div class="container m-5 mx-auto bg-secondary rounded " style="width: 60%; height: fit-content;" >
+<div class="container m-5 mx-auto bg-secondary rounded " style="width: 80%; height: fit-content;" >
 
   <div class="d-flex flex-row-reverse">
     <div class="p-2"> <i class="bi bi-x-lg" (click)="GotoHome()"> </i></div>
@@ -9,7 +9,8 @@
 
         <div class="m-1  text-white ">
             <form [formGroup]="createForm">
-                 
+                 <div class="row">
+                    <div class="col">
                     <div class="row m-1">
                       <div class="col">
                         <label for="tasktitle" class="m-1 " > Enter title :</label>
@@ -34,7 +35,7 @@
                           <label for="description" class="m-1"> Due date:</label>
                         </div>
                         <div class="col">
-                          <input id="description" type="date" class="form-control" formControlName="dueDate">
+                          <input id="description" type="text" class="form-control" bsDatepicker formControlName="dueDate">
                         </div>
                       </div>
 
@@ -61,18 +62,35 @@
                         </div>
 
                         <div class="col">
-                            <select class="form-control" id="user" style="width: 50%;" formControlName="user">
+                            <select class="form-control" id="user" style="width: 50%;" formControlName="userId">
                                 <option *ngFor=" let user of users" [value]=user.id>{{user.name}}</option>
-                               
+                                
                               </select>
 
                         </div>
                       </div>
+                  </div>
+                  
+                  <div class="col border-start"  formArrayName = "checklist">
+                    <h5>Add Check List</h5>
+                      <div class="row" *ngFor="let checklist of mychecklist.controls;let i=index">
+                            <div class="d-flex" [formGroupName]="i" >
+                              <input type="checkbox" class="form-check-input fs-4 ms-1" formControlName="isdone">
+                              <input type="text" class="form-control mx-1 mt-1" formControlName="name">
+                              <button  class="btn btn-outline-danger" (click)="removeChecklist(i)"> Remove </button>
+                            </div>
+                      </div>
+                      <button class="btn btn-success" (click)="addcheckList()"> ADD </button>
+                  </div>
+
+                 </div>  
+                   
                       <div class="d-flex flex-row-reverse">
                         <div class="p-2"></div>
                         <div class="p-2"><button type="submit" class="btn btn-primary"(click)="GetFormdata()" [disabled]="createForm.invalid" >ADD TASK</button></div>
                         <div class="p-2"><button type="reset" class="btn btn-primary">RESET</button></div>
                       </div>
+                     
                     
               </form>
         </div>      

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ServiceService } from '../service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { User, UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-task-edit',
@@ -14,8 +15,9 @@ export class TaskEditComponent implements OnInit{
   Title='Edit task';
   createForm: FormGroup;
   taskId:number;
+  users:User[]=[];
 
-constructor(private service:ServiceService ,private toastr: ToastrService, private router:Router,private fb:FormBuilder,private route:ActivatedRoute )
+constructor(private service:ServiceService ,private toastr: ToastrService, private router:Router,private fb:FormBuilder,private route:ActivatedRoute,private Serrvice2:UserService)
 {
   this.taskId = Number(this.route.snapshot.paramMap.get("id"));
 
@@ -24,7 +26,8 @@ this.createForm=this.fb.group({
   title:['',Validators.required],
   description:[''],
   dueDate:[],
-  priority:['',Validators.required]
+  priority:['',Validators.required],
+  userId:['']
 })
 }
 
@@ -35,9 +38,10 @@ ngOnInit(): void {
     {
     data.dueDate=new Date(data.dueDate).toISOString().slice(0,10);
     this.createForm.patchValue(data)
- 
   });
-
+  this.Serrvice2.getUsers().subscribe(data=>{
+    this.users=data
+  })
   
 }
 
@@ -61,5 +65,5 @@ GotoHome():void
   
 }
 
-
+export class DemoDatepickerBasicComponent {}
 

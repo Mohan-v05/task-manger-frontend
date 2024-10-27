@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormGroup,FormControl } from '@angular/forms';
 import { ServiceService } from '../service.service';
 import { ToastrService } from 'ngx-toastr';
@@ -22,13 +22,33 @@ this.createForm=this.fb.group({
   description:[''],
   dueDate:[],
   priority:['',Validators.required],
-  userId:[]
+  userId:[''],
+  checklist:this.fb.array([])
 })
 }
 
 ngOnInit(): void {
   this.service2.getUsers().subscribe(data=>{
     this.users=data;})
+}
+
+get mychecklist():FormArray{
+  return this.createForm.get('checklist')as FormArray
+}
+
+addcheckList(){
+  this.mychecklist.push(
+    this.fb.group(
+      {
+        name:[''],
+        isdone:[false]
+      }
+    )
+  )
+}
+
+removeChecklist(index:number){
+  this.mychecklist.removeAt(index)
 }
 
 

@@ -32,19 +32,24 @@
 
 <hr>
 <ul class="nav nav-pills flex-column mb-auto">
-  
-  <li>
+  <div cla class="rounded-pill">
+    <li>
     <a href="#" class="nav-link text-white"  [routerLink]="['/list-task']">
       <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
      Task
     </a>
   </li>
-  <li>
-    <a href="#" class="nav-link text-white"  [routerLink]="['/list-user']">
-      <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>
-     Users
-    </a>
-  </li>
+  
+  </div>
+  <div class="rounded-pill">
+    <li>
+      <a href="#" class="nav-link text-white"  [routerLink]="['/list-user']">
+        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+       Users
+      </a>
+    </li>
+  </div>
+ 
  
 </ul> 
 <hr>
@@ -73,17 +78,7 @@
 
 
 </main>
-<!-- 
-<nav class="navbar navbar-expand-lg bg-body-dark text-center">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link " href="#" [routerLink]="['/list-task']">Task</a>
-          <a class="nav-link" href="#" [routerLink]="['/list-user']">User</a>     
-        </div>
-      </div>
-    </div>
-  </nav> -->
+
 
 
 

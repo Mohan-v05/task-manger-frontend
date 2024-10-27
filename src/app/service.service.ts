@@ -6,6 +6,8 @@ import { User } from './service/user.service';
   providedIn: 'root'
 })
 export class ServiceService {
+  constructor(private http:HttpClient) { }
+
   updateTask(task: any ,taskid:number) {
    return this.http.put('http://localhost:5076/api/TaskItems/'+taskid,task)
   }
@@ -15,7 +17,6 @@ export class ServiceService {
    return this.http.get<Task>('http://localhost:5076/api/TaskItems/'+taskId);
   }
 
-  constructor(private http:HttpClient) { }
 
   getTasks(){
     return  this.http.get<Task[]>('http://localhost:5076/api/TaskItems')
@@ -29,7 +30,7 @@ export class ServiceService {
   Deletetask(taskId:number){
     return this.http.delete('http://localhost:5076/api/TaskItems/'+taskId)
   }
- 
+
 
 }
 
@@ -39,7 +40,7 @@ export interface Task{
   description:string,
   dueDate:string,
   priority:string;
-  assignee?:User;
+  user?:User;
 }
 
 
