@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from './service/user.service';
+import { intervalProvider } from 'rxjs/internal/scheduler/intervalProvider';
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +42,15 @@ export interface Task{
   dueDate:string,
   priority:string;
   user?:User;
+  checklist?:checklist
 }
 
+export interface checklist{
+  id:number,
+  name: string,
+  isDone: boolean,
+  taskId: number,
+  task?: Task
+}
 
 

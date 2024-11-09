@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Task } from '../service.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,20 +19,32 @@ export class UserService {
     return this.http.get<User>('http://localhost:5076/api/Users/'+ userId);
    }
  
-
- 
-   getUsers(){
+   getUsers(){ 
      return  this.http.get<User[]>('http://localhost:5076/api/Users')
    }
  
    AddUser(User:User){
-     return this.http.post('http://localhost:5076/api/Users',User)
-     
+     return this.http.post('http://localhost:5076/api/Users',User) 
    }
  
    Deleteuser(userId:number){
      return this.http.delete('http://localhost:5076/api/Users/'+userId)
    }
+
+   Registeruser(UserRegister:UserRegister){
+    return this.http.post<UserRegister>('http://localhost:5076/api/Auth/Register',UserRegister)
+   }
+
+   login(logininfo:Userlogin):Observable<any>{
+    return this.http.post('http://localhost:5076/api/Auth/login',logininfo)
+   }
+
+   isLoggedIn():boolean{
+    if (localStorage.getItem("token")) {
+      return true;
+    }
+    return false;
+    }
 
 }
 
@@ -46,8 +59,22 @@ export interface User{
 }
 
 export interface Address{
-  firstLine :string,
+    firstLine :string,
     secondLine:string,
     city:string,
+} 
 
+export class UserRegister
+ {
+    fullName? :string ;
+    email : string = "";
+    password :string= "";
+    role:number=0;
+  }
+
+export interface Userlogin
+{
+  email : string ,
+  password :string,
 }
+ 

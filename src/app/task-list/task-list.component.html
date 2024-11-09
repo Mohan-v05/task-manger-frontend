@@ -33,17 +33,17 @@
                 <td>{{task.user?.name}}</td>
                 <td class="p-2">
                   <button class="rounded btn btn-outline-primary mx-1"  [routerLink]="['/edit/'+task.id]" ><i class="bi bi-pencil"></i>Edit</button>
-                  <button   class="rounded btn btn-outline-danger mx-1" (click)="Deletetask(task.id)"> Delete <i class="bi bi-trash"></i></button> </td>
+                  <button   class="rounded btn btn-outline-danger mx-1"  (click)="openModal(task.id, template)"> Delete <i class="bi bi-trash"></i></button>
+                  
+                  </td>
               </tr>
             </tbody>
           </table>
         </div>
-<!--modal-->
-<!-- 
-        <button type="button" class="btn btn-primary" (click)="openModal(template)">Open modal</button>
-        <br><br>
-        <pre class="card card-block card-header">MOHAN</pre>
 
+
+<!--modal-->
+        
         
         <ng-template #template>
           <div class="modal-body text-center">
@@ -51,4 +51,4 @@
             <button type="button" class="btn btn-default" (click)="confirm()" >Yes</button>
             <button type="button" class="btn btn-primary" (click)="decline()" >No</button>
           </div>
-        </ng-template> -->
+        </ng-template>

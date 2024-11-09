@@ -19,6 +19,10 @@ import { UserAddComponent } from './user-add/user-add.component';
 import { UserSearchPipe } from './pipe/user-search.pipe';
 import { BsDatepickerConfig, BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BsModalService } from 'ngx-bootstrap/modal';
+import { RegisterComponentComponent } from './register-component/register-component.component';
+import { LoginComponentComponent } from './login-component/login-component.component';
+import { AdminComponent } from './layouts/admin/admin.component';
+import { BlankComponent } from './layouts/blank/blank.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,11 @@ import { BsModalService } from 'ngx-bootstrap/modal';
     SearchPipe,
     UserListComponent,
     UserAddComponent,
-    UserSearchPipe
+    UserSearchPipe,
+    RegisterComponentComponent,
+    LoginComponentComponent,
+    AdminComponent,
+    BlankComponent
     
   ],
   imports: [

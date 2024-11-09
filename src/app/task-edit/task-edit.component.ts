@@ -60,7 +60,7 @@ GetFormdata(){
 
 GotoHome():void
 {
-  this.router.navigate([''])
+  this.router.navigate(['list-task'])
 }
   
 }
